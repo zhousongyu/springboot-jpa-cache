@@ -1,0 +1,34 @@
+spring:
+  datasource:   #多数据源配置
+    master:
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: zhou
+      driver-class-name: com.mysql.jdbc.Driver
+    slave:
+      url: jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: zhou
+      driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+  application:
+    name: test-14
+  cache:
+    cache-names:
+    - test-14-caches
+    type: ehcache
+    ehcache:
+      config: classpath:my-ehcache.xml
+server:
+  port: 9090
+
+
+
+
